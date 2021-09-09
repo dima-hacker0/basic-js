@@ -24,4 +24,3 @@ export default function dateSample(sampleActivity) {
   let k = 0.693 / 5730;
   return Math.ceil(Math.log(first) / k);
 }
-dateSample('9.133070472061402');
