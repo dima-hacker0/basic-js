@@ -56,4 +56,3 @@ export default function transform(arr) {
   }
   return arr1;
 }
-transform([1, 2, 3, '--double-next', 1337, '--discard-prev', 4, 5])
