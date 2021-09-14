@@ -23,7 +23,38 @@ import { NotImplementedError } from '../extensions/index.js';
  *  [1, 1, 1]
  * ]
  */
-export default function minesweeper (/* matrix */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+export default function minesweeper (matrix) {
+  let arrNew = []
+  for(let i = 0; i < matrix.length; i++) {
+    arrNew[i] = [];
+    for(let j = 0; j < matrix[i].length; j++) {
+      arrNew[i][j] = 0;
+    }
+  }
+
+
+
+
+
+
+  for(let i = 0; i < matrix.length; i++) {
+    for(let j = 0; j < matrix[i].length; j++) {
+      if(matrix[i][j] == true) {
+        if(i - 1 > - 1 && j - 1 > -1) arrNew[i - 1][j - 1]++;
+        if(i - 1 > - 1) arrNew[i - 1][j]++;
+        if(i - 1 > - 1 && j + 1 < arrNew.length) arrNew[i - 1][j + 1]++;
+        if(j - 1 > -1) arrNew[i][j - 1]++;
+        if(j + 1 < arrNew.length) arrNew[i][j + 1]++;
+        if(i + 1 < arrNew.length && j - 1 > -1) arrNew[i + 1][j - 1]++;
+        if(i + 1 < arrNew.length) arrNew[i + 1][j]++;
+        if(i + 1 < arrNew.length && j + 1 < arrNew.length) arrNew[i + 1][j + 1]++;
+      }
+    }
+  }
+  return arrNew;
 }
+minesweeper([
+  [true, false, false],
+  [false, true, false],
+  [false, false, false],
+])
